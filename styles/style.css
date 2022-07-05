@@ -1,0 +1,30 @@
+body {
+  background-color: #dffadf;
+}
+
+ul {
+  padding: 10px;
+}
+
+ul li {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+ul li input {
+  margin: 0 50px 0;
+  width: 25px;
+}
+
+ul li input:checked {
+  accent-color: green;
+}
+
+ul li label {
+  -webkit-box-flex: 4;
+      -ms-flex-positive: 4;
+          flex-grow: 4;
+}
+/*# sourceMappingURL=style.css.map */

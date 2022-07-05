@@ -1,0 +1,24 @@
+body {
+    background-color: rgb(223, 250, 223);
+}
+ul {
+    padding: 10px;
+
+    & li {
+        list-style-type: none;
+        display: flex;
+
+        & input {
+            margin: 0 50px 0;
+            width: 25px;
+
+            &:checked {
+                accent-color: green;
+            }
+        }
+
+        & label {
+            flex-grow: 4;
+        }
+    }
+}
