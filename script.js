@@ -17,8 +17,7 @@ async function receiveData(type, input) {
 }
 
 // Nieuwe To do toevoegen
-const addNewTasktoList = (newTodo, input) => {
-  receiveData(postData, newTodo);
+const addNewTasktoList = (input) => {
   const newTask = document.createElement("li");
   const newInput = document.createElement("input");
   const newLabel = document.createElement("label");
@@ -63,7 +62,14 @@ buttonNewTask.addEventListener("click", (event) => {
   if (input == "") {
     alert("Het veld is nog leeg!");
   } else {
-    addNewTasktoList(newTodo, input);
+    receiveData(postData, newTodo);
+    addNewTasktoList(input);
     valueNewTodo.value = "";
   }
 });
+
+async function loadPage() {
+  const data = await receiveData(getData);
+  data.forEach((i) => addNewTasktoList(i.description));
+}
+loadPage();
