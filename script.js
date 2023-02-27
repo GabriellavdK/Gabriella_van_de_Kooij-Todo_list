@@ -8,8 +8,10 @@ async function receiveData(type, input) {
   try {
     let data = await type(input);
     console.log("Received data from api-client.js file.");
-    data = await data.json();
-    console.log("Converted the data to JSON.");
+    if (type != deleteData) {
+      data = await data.json();
+      console.log("Converted the data to JSON.");
+    }
     return data;
   } catch (err) {
     return console.log(`Error: ${err}`);
@@ -44,7 +46,9 @@ async function deleteTodoFromApi(labelTextCurrentId) {
   const detailsDeletedItem = data.find(
     (i) => i.description == labelTextCurrentId
   );
+  console.log("Found the description");
   await receiveData(deleteData, detailsDeletedItem);
+  console.log("Deleted the item from database");
   // Vanaf hier de code om de To do visueel uit de html/lijst te verwijderen
   const getLabels = Array.from(document.getElementsByTagName("label"));
   getLabels
